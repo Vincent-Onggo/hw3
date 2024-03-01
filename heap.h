@@ -98,8 +98,8 @@ private:
         if(index >= (heap.size() / m_) + 1){
             return;
         }
-        int smallerChild = 2 * index;
-        if(2*index + 1 < heap.size()){ // right child exists
+        int smallerChild = m_ * index;
+        if(m_*index + 1 < heap.size()){ // right child exists
             int rChild = smallerChild + 1;
             if(c_(heap[rChild], heap[smallerChild])){
                 smallerChild = rChild;
