@@ -4,10 +4,14 @@ using namespace std;
 
 int main(){
     Heap<int> x;
+    x.push(0);
     x.push(5);
-    x.push(9);
-    x.push(2);
+    x.push(10);
+    cout << x.top() << endl;
     x.pop();
+    cout << x.top() << endl;
     x.pop();
-    cout << x.top();
+    cout << x.top() << endl;
+    x.pop();
+
 }

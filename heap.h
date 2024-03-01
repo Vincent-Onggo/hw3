@@ -95,23 +95,37 @@ private:
      * @param index Starting index for heapify
      */
     void heapify(int index) {
-        int smallest = index;
-        int child = index * m_;
-        while (child < heap.size()) {
-            int endChild = std::min(child + m_ - 1, static_cast<int>(heap.size()) - 1);
-            for (int i = child + 1; i <= endChild; ++i) {
-                if (c_(heap[i], heap[smallest])) {
-                    smallest = i;
-                }
-            }
-            if (c_(heap[smallest], heap[index])) {
-                std::swap(heap[index], heap[smallest]);
-                index = smallest;
-                child = index * m_;
-            } else {
-                break;
+        if(index >= (heap.size() / 2) + 1){
+            return;
+        }
+        int smallerChild = 2 * index;
+        if(2*index + 1 < heap.size()){ // right child exists
+            int rChild = smallerChild + 1;
+            if(c_(rChild, smallerChild)){
+                smallerChild = rChild;
             }
         }
+        if(heap[index] > heap[smallerChild]){
+            std::swap(heap[index], heap[smallerChild]);
+            heapify(smallerChild);
+        }
+//        int smallest = index;
+//        int child = index * m_;
+//        while (child < heap.size()) {
+//            int endChild = std::min(child + m_ - 1, static_cast<int>(heap.size()) - 1);
+//            for (int i = child + 1; i <= endChild; ++i) {
+//                if (c_(heap[i], heap[smallest])) {
+//                    smallest = i;
+//                }
+//            }
+//            if (c_(heap[smallest], heap[index])) {
+//                std::swap(heap[index], heap[smallest]);
+//                index = smallest;
+//                child = index * m_;
+//            } else {
+//                break;
+//            }
+//        }
     }
 };
 
