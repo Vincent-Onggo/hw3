@@ -92,18 +92,18 @@ int main(int argc, char* argv[])
 
     // Test out your linked list code
     // test for split list
-    Node* smaller = nullptr;
-    Node* larger = nullptr;
-    llpivot(head,smaller, larger, 10);
-    cout << "Smaller: ";
-    print(smaller);
-    cout << "Larger: ";
-    print(larger);
-
-    cout << "------------------\n";
-    isEven even;
-    larger = llfilter(larger, even);
-    print(larger);
+//    Node* smaller = nullptr;
+//    Node* larger = nullptr;
+//    llpivot(head,smaller, larger, 10);
+//    cout << "Smaller: ";
+//    print(smaller);
+//    cout << "Larger: ";
+//    print(larger);
+//
+//    cout << "------------------\n";
+//    isEven even;
+//    larger = llfilter(larger, even);
+//    print(larger);
     
     return 0;
 

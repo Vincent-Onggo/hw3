@@ -18,6 +18,8 @@ void addToBack(Node*& head, Node*& node) {
 
 void llpivot(Node*& head, Node*& smaller, Node*& larger, int pivot) {
     if (head == nullptr) {
+        smaller = nullptr;
+        larger = nullptr;
         return;
     }
 
@@ -30,7 +32,6 @@ void llpivot(Node*& head, Node*& smaller, Node*& larger, int pivot) {
     }
 
     head = nextNode;
-
     llpivot(head, smaller, larger, pivot);
 }
 
