@@ -7,14 +7,19 @@ all: llrec-test
 #-----------------------------------------------------
 # ADD target(s) to build your llrec-test executable
 #-----------------------------------------------------
-llrec-test: llrec.o llrec-test.o
-	g++ -g -Wall llrec.o llrec-test.o -o llrec-test
+
+llrec-test: llrec.o llrec-test.o stack.o
+	$(CXX) $(CXXFLAGS) llrec.o llrec-test.o stack.o -o llrec-test
 
 llrec.o: llrec.cpp llrec.h
-	g++ -g -Wall -c llrec.cpp -o llrec.o
+	$(CXX) $(CXXFLAGS) -c llrec.cpp -o llrec.o
 
 llrec-test.o: llrec-test.cpp
-	g++ -g -Wall -c llrec-test.cpp -o llrec-test.o
+	$(CXX) $(CXXFLAGS) -c llrec-test.cpp -o llrec-test.o
+
+# Add stack.o compilation target
+stack.o: stack.cpp stack.h
+	$(CXX) $(CXXFLAGS) -c stack.cpp -o stack.o
 
 clean:
 	rm -f *.o llrec-test *~
