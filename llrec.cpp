@@ -1,7 +1,7 @@
 #include "llrec.h"
 
 
-void addToBack(Node*& head, Node*& node) {
+void addToBack(Node*& head, Node*& node) { // add to back of smaller or larger list
     if (head == nullptr) {
         head = node;
         node->next = nullptr;
@@ -15,8 +15,7 @@ void addToBack(Node*& head, Node*& node) {
     }
 
 }
-
-void llpivot(Node*& head, Node*& smaller, Node*& larger, int pivot) {
+void llpivotHelper(Node*& head, Node*& smaller, Node*& larger, int pivot){
     if (head == nullptr) {
         smaller = nullptr;
         larger = nullptr;
@@ -37,6 +36,14 @@ void llpivot(Node*& head, Node*& smaller, Node*& larger, int pivot) {
     }else{
         return;
     }
+}
+
+void llpivot(Node*& head, Node*& smaller, Node*& larger, int pivot) {
+    smaller = nullptr;
+    larger = nullptr;
+    llpivotHelper(head, smaller, larger, pivot);
+
 
 }
+
 

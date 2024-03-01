@@ -92,8 +92,8 @@ int main(int argc, char* argv[])
 
     // Test out your linked list code
     // test for split list
-    Node* smaller = nullptr;
-    Node* larger = nullptr;
+    Node* smaller;
+    Node* larger;
     llpivot(head,smaller, larger, 1);
     cout << "Smaller: ";
     print(smaller);
