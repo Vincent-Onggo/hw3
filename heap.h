@@ -105,27 +105,10 @@ private:
                 smallerChild = rChild;
             }
         }
-        if(heap[index] > heap[smallerChild]){
+        if(c_(heap[smallerChild], heap[index])){
             std::swap(heap[index], heap[smallerChild]);
             heapify(smallerChild);
         }
-//        int smallest = index;
-//        int child = index * m_;
-//        while (child < heap.size()) {
-//            int endChild = std::min(child + m_ - 1, static_cast<int>(heap.size()) - 1);
-//            for (int i = child + 1; i <= endChild; ++i) {
-//                if (c_(heap[i], heap[smallest])) {
-//                    smallest = i;
-//                }
-//            }
-//            if (c_(heap[smallest], heap[index])) {
-//                std::swap(heap[index], heap[smallest]);
-//                index = smallest;
-//                child = index * m_;
-//            } else {
-//                break;
-//            }
-//        }
     }
 };
 
