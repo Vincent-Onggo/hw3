@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
     // test for split list
     Node* smaller;
     Node* larger;
-    llpivot(head,smaller, larger, 1);
+    llpivot(head,smaller, larger, 3);
     cout << "Smaller: ";
     print(smaller);
     cout << "Larger: ";

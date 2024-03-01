@@ -32,7 +32,7 @@ void llpivotHelper(Node*& head, Node*& smaller, Node*& larger, int pivot){
 
     head = nextNode;
     if(head != nullptr){
-        llpivot(head, smaller, larger, pivot);
+        llpivotHelper(head, smaller, larger, pivot);
     }else{
         return;
     }
@@ -42,8 +42,6 @@ void llpivot(Node*& head, Node*& smaller, Node*& larger, int pivot) {
     smaller = nullptr;
     larger = nullptr;
     llpivotHelper(head, smaller, larger, pivot);
-
-
 }
 
 
