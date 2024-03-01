@@ -4,15 +4,23 @@ using namespace std;
 
 
 int main(){
-    Heap<int, std::greater<int>> x;
-    x.push(10);
-    x.push(1000);
-    x.push(100);
-    cout << x.top() << endl;
-    x.pop();
-    cout << x.top() << endl;
-    x.pop();
-    cout << x.top() << endl;
-    x.pop();
+    Heap<int> heap(3);
+    heap.push(0);
+    heap.push(5);
+    heap.push(10);
+    heap.push(15);
+    heap.push(20);
+    cout << heap.top() << endl;
+    heap.pop();
+    cout << heap.top() << endl;
+    heap.pop();
+    cout << heap.top() << endl;
+    heap.pop();
+    cout << heap.top() << endl;
+    heap.pop();
+    cout << heap.top() << endl;
+    heap.pop();
+
+
 
 }
