@@ -96,7 +96,7 @@ private:
      */
     void heapify(int index) {
         int firstChild = m_ * (index - 1) + 2;
-        int lastChild = std::min(static_cast<int>(heap.size()), m_ * (index + 1));
+        int lastChild = std::min(static_cast<int>(heap.size()), firstChild + m_);
 
         int bestChild = index;
         for (int i = firstChild; i < lastChild; ++i) {
