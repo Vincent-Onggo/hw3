@@ -98,16 +98,23 @@ private:
         if(index >= (heap.size() / m_) + 1){
             return;
         }
-        int smallerChild = m_ * index;
-        if(m_*index + 1 < heap.size()){ // right child exists
-            int rChild = smallerChild + 1;
-            if(c_(heap[rChild], heap[smallerChild])){
-                smallerChild = rChild;
+        int firstChild = m_ * index;
+        int bestChild = firstChild;
+//        if(m_*index + 1 < heap.size()){ // right child exists
+//            int rChild = smallerChild + 1;
+//            if(c_(heap[rChild], heap[smallerChild])){
+//                smallerChild = rChild;
+//            }
+//        }
+        for(int i = 1; i < m_; i++){
+            int childIndex = firstChild + i;
+            if(childIndex < heap.size() and c_(heap[childIndex], heap[bestChild])){
+                bestChild = childIndex;
             }
         }
-        if(c_(heap[smallerChild], heap[index])){
-            std::swap(heap[index], heap[smallerChild]);
-            heapify(smallerChild);
+        if(c_(heap[bestChild], heap[index])){
+            std::swap(heap[index], heap[bestChild]);
+            heapify(bestChild);
         }
     }
 };
