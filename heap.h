@@ -32,16 +32,18 @@ public:
      *
      * @param item item to heap
      */
-    void push(const T &item) {
+     void push(const T &item) {
         heap.push_back(item);
-        double loc = heap.size() - 1;
-        int parent = ceil(loc / m_);
+        int loc = heap.size() - 1;
+        int parent = (loc + m_ - 2) / m_; // Calculate parent index
+
         while (parent >= 1 && c_(heap[loc], heap[parent])) {
             std::swap(heap[loc], heap[parent]);
             loc = parent;
-            parent = ceil(loc / m_);
+            parent = (loc + m_ - 2) / m_;
         }
     }
+
 
     /**
      * @brief Returns the top (priority) item
