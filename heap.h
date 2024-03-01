@@ -95,11 +95,11 @@ private:
      * @param index Starting index for heapify
      */
     void heapify(int index) {
-        int firstChild = m_ * (index - 1) + 2;
-        int lastChild = std::min(static_cast<int>(heap.size()), firstChild + m_);
+        int firstChild = m_ * index + 1;
+        int lastChild = std::min(static_cast<int>(heap.size()) - 1, m_ * (index + 1));
 
         int bestChild = index;
-        for (int i = firstChild; i < lastChild; ++i) {
+        for (int i = firstChild; i <= lastChild; ++i) {
             if (c_(heap[i], heap[bestChild])) {
                 bestChild = i;
             }
@@ -110,6 +110,7 @@ private:
             heapify(bestChild);
         }
     }
+
 
 };
 
