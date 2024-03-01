@@ -4,6 +4,7 @@
 #include <functional>
 #include <stdexcept>
 #include <vector>
+#include <cmath>
 
 template <typename T, typename PComparator = std::less<T>>
 class Heap {
@@ -33,12 +34,12 @@ public:
      */
     void push(const T &item) {
         heap.push_back(item);
-        int loc = heap.size() - 1;
-        int parent = (loc / m_) + 1;
+        double loc = heap.size() - 1;
+        int parent = ceil(loc / m_);
         while (parent >= 1 && c_(heap[loc], heap[parent])) {
             std::swap(heap[loc], heap[parent]);
             loc = parent;
-            parent = (loc / m_) + 1;
+            parent = ceil(loc / m_);
         }
     }
 
