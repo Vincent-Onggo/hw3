@@ -18,7 +18,6 @@ public:
     const T& top() const; // throws std::underflow_error if empty
     // Add other members only if necessary
 private:
-    int num_elements;
     std::vector<T> stack;
 };
 
