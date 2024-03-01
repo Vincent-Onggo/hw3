@@ -95,7 +95,7 @@ private:
      * @param index Starting index for heapify
      */
     void heapify(int index) {
-        if(index >= (heap.size() / 2) + 1){
+        if(index >= (heap.size() / m_) + 1){
             return;
         }
         int smallerChild = 2 * index;
