@@ -34,11 +34,11 @@ public:
     void push(const T &item) {
         heap.push_back(item);
         int loc = heap.size() - 1;
-        int parent = loc / m_;
+        int parent = (loc / m_) + 1;
         while (parent >= 1 && c_(heap[loc], heap[parent])) {
             std::swap(heap[loc], heap[parent]);
             loc = parent;
-            parent = loc / m_;
+            parent = (loc / m_) + 1;
         }
     }
 
