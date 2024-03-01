@@ -95,23 +95,19 @@ private:
      * @param index Starting index for heapify
      */
     void heapify(int index) {
-        int smallerChild = index * m_ + 1;
-        while (smallerChild < heap.size()) {
-            // Find the smallest child among the children of the current node
-            int nextChild = smallerChild + 1;
-            for (int i = 2; i <= m_ && i + smallerChild < heap.size(); ++i) {
-                if (c_(heap[smallerChild + i - 1], heap[smallerChild])) {
-                    smallerChild = smallerChild + i - 1;
-                }
+        if(index >= (heap.size() / m_) + 1){
+            return;
+        }
+        int smallerChild = 2 * index;
+        if(2*index + 1 < heap.size()){ // right child exists
+            int rChild = smallerChild + 1;
+            if(c_(heap[rChild], heap[smallerChild])){
+                smallerChild = rChild;
             }
-            // Swap if the smaller child is smaller than the current node
-            if (c_(heap[smallerChild], heap[index])) {
-                std::swap(heap[index], heap[smallerChild]);
-                index = smallerChild;
-                smallerChild = index * m_ + 1;
-            } else {
-                break;
-            }
+        }
+        if(c_(heap[smallerChild], heap[index])){
+            std::swap(heap[index], heap[smallerChild]);
+            heapify(smallerChild);
         }
     }
 };
