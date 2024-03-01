@@ -68,7 +68,12 @@ void dealloc(Node* head)
 // -----------------------------------------------
 
 
-
+class isEven{
+public:
+    bool operator()(Node* node) const{
+        return !(node->val % 2);
+    }
+};
 
 
 int main(int argc, char* argv[])
@@ -86,9 +91,19 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+    // test for split list
+    Node* smaller = nullptr;
+    Node* larger = nullptr;
+    llpivot(head,smaller, larger, 10);
+    cout << "Smaller: ";
+    print(smaller);
+    cout << "Larger: ";
+    print(larger);
 
-
-
+    cout << "------------------\n";
+    isEven even;
+    larger = llfilter(larger, even);
+    print(larger);
     
     return 0;
 
